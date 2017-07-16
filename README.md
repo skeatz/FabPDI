@@ -25,6 +25,7 @@ Since Fab Academy 2016, I have managed to build 2 different versions of fabbable
 
 My collection of DIY and modified PDI programmer boards:
 ![PDI-programmer collection](images/pdi-boards.jpg)
+*PDI boards collection (from left): FabPDI-mega8, FabPDI-t90usb, USBasp v2.0 (LC Technology), USBasp (Baite)*
 
 *(c) Steven Chew*
 
