@@ -1580,9 +1580,9 @@ In this library the device names are the same as the pin names of the symbols, t
 <attribute name="VALUE" x="193.04" y="111.76" size="1.9304" layer="96" rot="R180"/>
 </instance>
 <instance part="JP2" gate="A" x="182.88" y="154.94" rot="R90"/>
-<instance part="C6" gate="&gt;NAME" x="165.1" y="76.2" smashed="yes" rot="R90">
-<attribute name="NAME" x="165.735" y="76.2" size="1.778" layer="95"/>
-<attribute name="VALUE" x="170.18" y="73.66" size="1.778" layer="96" rot="R180"/>
+<instance part="C6" gate="&gt;NAME" x="165.1" y="63.5" smashed="yes" rot="R90">
+<attribute name="NAME" x="165.735" y="63.5" size="1.778" layer="95"/>
+<attribute name="VALUE" x="170.18" y="60.96" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="C7" gate="&gt;NAME" x="200.66" y="129.54" smashed="yes" rot="R90">
 <attribute name="NAME" x="198.12" y="125.73" size="1.778" layer="95" rot="R90"/>
@@ -1597,7 +1597,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <attribute name="VALUE" x="175.895" y="136.525" size="1.9304" layer="96"/>
 </instance>
 <instance part="SUPPLY3" gate="G$1" x="165.1" y="137.16"/>
-<instance part="GND4" gate="1" x="165.1" y="66.04"/>
+<instance part="GND4" gate="1" x="165.1" y="53.34"/>
 <instance part="GND5" gate="1" x="203.2" y="66.04"/>
 <instance part="GND6" gate="1" x="182.88" y="119.38"/>
 <instance part="GND7" gate="1" x="243.84" y="81.28"/>
@@ -1617,9 +1617,9 @@ In this library the device names are the same as the pin names of the symbols, t
 <attribute name="NAME" x="54.864" y="95.758" size="1.778" layer="95"/>
 <attribute name="VALUE" x="60.198" y="85.344" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R11" gate="G$1" x="165.1" y="111.76" smashed="yes" rot="R90">
-<attribute name="NAME" x="163.83" y="115.3414" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="162.306" y="110.998" size="1.778" layer="96" rot="R180"/>
+<instance part="R11" gate="G$1" x="165.1" y="73.66" smashed="yes" rot="R90">
+<attribute name="NAME" x="163.83" y="77.2414" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="162.306" y="72.898" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -1696,7 +1696,7 @@ In this library the device names are the same as the pin names of the symbols, t
 <segment>
 <pinref part="C6" gate="&gt;NAME" pin="1"/>
 <pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="165.1" y1="71.12" x2="165.1" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="58.42" x2="165.1" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP3" gate="A" pin="6"/>
@@ -1925,16 +1925,16 @@ In this library the device names are the same as the pin names of the symbols, t
 <net name="N$22" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="GREF"/>
-<pinref part="C6" gate="&gt;NAME" pin="2"/>
 <wire x1="170.18" y1="81.28" x2="165.1" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="81.28" x2="165.1" y2="78.74" width="0.1524" layer="91"/>
-<junction x="165.1" y="81.28"/>
 <pinref part="U2" gate="G$1" pin="DREF"/>
 <wire x1="165.1" y1="83.82" x2="165.1" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="170.18" y1="83.82" x2="165.1" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="165.1" y1="106.68" x2="165.1" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+<wire x1="165.1" y1="119.38" x2="165.1" y2="83.82" width="0.1524" layer="91"/>
 <junction x="165.1" y="83.82"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="165.1" y1="81.28" x2="165.1" y2="78.74" width="0.1524" layer="91"/>
+<junction x="165.1" y="81.28"/>
 </segment>
 </net>
 <net name="N$24" class="0">
@@ -2056,17 +2056,23 @@ In this library the device names are the same as the pin names of the symbols, t
 </net>
 <net name="N$30" class="0">
 <segment>
-<pinref part="R9" gate="G$1" pin="1"/>
-<pinref part="R11" gate="G$1" pin="2"/>
-<wire x1="165.1" y1="119.38" x2="165.1" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="R11" gate="G$1" pin="1"/>
+<pinref part="C6" gate="&gt;NAME" pin="2"/>
+<wire x1="165.1" y1="68.58" x2="165.1" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
 <errors>
+<approved hash="102,1,246.38,119.38,VCC,V+,,,,"/>
+<approved hash="102,1,205.74,142.24,VCC,V+,,,,"/>
 <approved hash="201,1,205.74,142.24,VCC,VCC\, V+,,,,"/>
 <approved hash="201,1,246.38,119.38,VCC,VCC\, V+,,,,"/>
+<approved hash="113,1,130.071,89.431,FRAME1,,,,,"/>
+<approved hash="113,1,119.249,56.1171,JP1,,,,,"/>
+<approved hash="113,1,181.479,152.637,JP2,,,,,"/>
+<approved hash="113,1,55.6218,63.2206,JP5,,,,,"/>
 </errors>
 </schematic>
 </drawing>
