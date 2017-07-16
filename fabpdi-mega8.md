@@ -40,7 +40,7 @@ For my FabPDI-mega8 board, I modified the original USBasp design such that the b
 A regular 6-way cable is used for ISP programming.
 
 ## Building the FabPDI-mega8 Board
-###**Schematic Diagram and PCB Layout**
+### **Schematic Diagram and PCB Layout**
 
 The schematic diagram, component layout, fab modules compatible board outline and pcb traces are shown below.
 
@@ -54,7 +54,7 @@ The schematic is a modified version of Thomas Fischl's [original USBasp](http://
 
 *FabPDI-mega8 board layout*
 
-Fab modules downloads:
+Fab modules downloads (1269dpi):
 
 * [FabPDI-mega8 board outline](images/fabpdi-mega8_outline.png)
 * [FabPDI-mega8 pcb trace](images/fabpdi-mega8_traces.png)
@@ -63,7 +63,7 @@ Mill and Stuff the PCB
 
 ![FabPDI-mega8 milled & stuffed](images/fabpdi-mega8_06.png)
 
-###**Component List**
+### **Component List**
 
 | Component | Component |
 | :------- | :-------- |
@@ -77,7 +77,7 @@ Mill and Stuff the PCB
 | 1 x 2k2 ohm R | 2 x 1k ohm R |
 | 2 x 49 ohm R | 1 x 0 ohm R |
 
-###**Programming the Firmware**
+### **Programming the Firmware**
 The original USBasp firmware has to be modified to support PDI programming. Szulat's [article](http://szulat.blogspot.sg/2012/08/atxmega-programmer-for-050.html) lists the steps used to modify the firmware. You basically need to do the following:
 
 1. Download Thomas Fischl's USBasp [sourcecode](http://www.fischl.de/usbasp/usbasp.2011-05-28.tar.gz) (latest version)
