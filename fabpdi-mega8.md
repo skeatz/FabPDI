@@ -40,6 +40,8 @@ For my FabPDI-mega8 board, I modified the original USBasp design such that the b
 A regular 6-way cable is used for ISP programming.
 
 ## Building the FabPDI-mega8 Board
+###**Component List**
+
 ###**Schematic Diagram and PCB Layout**
 
 The schematic diagram, component layout, fab modules compatible board outline and pcb traces are shown below.
@@ -48,15 +50,19 @@ The schematic is a modified version of Thomas Fischl's [original USBasp](http://
 
 ![FabPDI-mega8 schematic](images/fabpdi-mega8_04.png)
 
+*FabPDI-mega8 schematic*
+
 ![FabPDI-mega8 pcb layout](images/fabpdi-mega8_05.png)
+
+*FabPDI-mega8 board layout*
 
 ![FabPDI-mega8 board outline](images/fabpdi-mega8_outline.png)
 
-Fab module compatible board outline
+*Fab module compatible board outline*
 
 ![FabPDI-mega8 pcb trace](images/fabpdi-mega8_traces.png)
 
-Fab module compatible pcb traces for milling
+*Fab module compatible pcb traces for milling*
 
 Mill and Stuff the PCB
 
@@ -125,12 +131,16 @@ Open a terminal window. Unpack avrdude-6.3_linux.tar.gz. Change to the program d
 ***Congratulations! You have built your very own FabPDI programmer!!***
 
 ## Files
-[Eagle schematic for FabPDI-mega8](files/fabpdi-mega8/fabpdi-mega8.sch)
+* [Eagle schematic for FabPDI-mega8](files/fabpdi-mega8/fabpdi-mega8.sch)
 
-[Eagle pcb layout for FabPDI-mega8](files/fabpdi-mega8/fabpdi-mega8.brd)
+* [Eagle pcb layout for FabPDI-mega8](files/fabpdi-mega8/fabpdi-mega8.brd)
 
-[Firmware for FabPDI-mega8](files/fabpdi-mega8/fabpdi-mega8-firmware.hex)
+* [Firmware for FabPDI-mega8](files/fabpdi-mega8/fabpdi-mega8-firmware.hex)
 
-[AVRDUDE v6.3 for Windows](files/fabpdi-mega8/avrdude-6.3_win32.zip)
+* [AVRDUDE v6.3 for Windows](files/fabpdi-mega8/avrdude-6.3_win32.zip)
 
-[AVRDUDE v6.3 for Linux](files/fabpdi-mega8/avrdude-6.3_linux.tar.gz)
+* [AVRDUDE v6.3 for Linux](files/fabpdi-mega8/avrdude-6.3_linux.tar.gz)
+
+*Copyright (c) 2017-Steven Chew*
+
+*MIT license*

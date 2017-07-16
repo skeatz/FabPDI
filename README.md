@@ -28,6 +28,6 @@ My collection of DIY and modified PDI programmer boards:
 
 *PDI boards collection (from left): FabPDI-mega8, FabPDI-t90usb, USBasp v2.0 (LC Technology), USBasp (Baite)*
 
-*(c) Steven Chew*
+*Copyright (c) 2017 Steven Chew*
 
-MIT license*
+*MIT license*
