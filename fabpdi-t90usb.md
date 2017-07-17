@@ -45,6 +45,13 @@ Most of the traces are 15 mil wide, except for the traces connected to the [GTL2
 
 *Completed FabPDI-t90usb board*
 
+### Testing the board
+After milling & stuffing the FabPDI-t90usb, connect it to a USB port. In Windows, check *Device Manager* to verify that the board is correctly detected by the system. In Windows, the FabPDI-t90usb identifies itself as an AVRISP mkII. In Linux, enter the command ***lsusb*** in a terminal screen. You should see a new device called ***at90usb162 DFU***.
+
+![FabPDI-t90usb in Windows Device Manager](images/fabpdi-t90usb_04.png)
+
+![FabPDI-t90usb in Linux](images/fabpdi-t90usb_05.png)
+
 ## Component List
 | Components | Components |
 | :--------- | :--------- |
@@ -58,10 +65,34 @@ Most of the traces are 15 mil wide, except for the traces connected to the [GTL2
 | 1 x 100k ohm R | 1 x 10k ohm R |
 | 3 x 1k ohm R |  4 x 49 ohm R |
 
-## Programming the firmware
-### For Linux
+### Update
+I have since revised my PCB layout to make it a bit smaller and easier to mill on our Fablab standard 3" x 2" copper blanks. I did this by shifting the placement of some of the components and changing the location of one of the 0 ohm resistors. The revised schematic & pcb layout are below.
 
+![FabPDI-t90usb revised schematic](images/fabpdi-t90usb_01a.png)
+
+*Revised schematic diagram*
+
+![FabPDI-t90usb revised PCB layout](images/fabpdi-t90usb_02a.png)
+
+*Revised pcb layout*
+
+Fab modules download (1269dpi):
+* [FabPDI-t90usb board outline](images/fabpdi-t90usb_outline.png)
+* [FabPDI-t90usb pcb trace](images/fabpdi-t90usb_traces.png)
+
+## Programming the firmware
 ### For Windows
+The FabPDI-t90usb is a DFU class device and can be programmed via the DFU protocol. Download and install the Atmel [FLIP](http://www.atmel.com/tools/flip.aspx) software. The software requires Java Runtime Environment. 2 versions of the software are available at the Atmel site - with and without JRE. I opted to install the version with JRE, as the installation would then take care of all dependencies and environment variables required.
+
+After the software is installed, install the DFU drivers from the \Program Files\Atmel\Flip 3.4.7\usb folder. Start FLIP, click on the **"CHIP"** icon and select at90usb162 from the list. Then click on the **"usb cable"** icon, select **USB** and **OPEN**. FLIP should detect the programmer.
+
+To program the board, jumper the **HWB** pins. Short the **RST** pins momentarily. The board will start in bootloader mode. If the AT90usb162 is brand new (empty), it will automatically start in bootloader mode.
+
+Download the pre-compiled [firmware](files/fabpdi-t90usb/fabpdi-t90usb_firmware.hex). Click on the **"Open Book"** and load the firmware. In the left column of the FLIP window, check the **"Erase"**, **"Program"** and **"Verify"** checkboxes. Click the **RUN** button. After the firmware has been uploaded to the board, disconnect and reconnect it. Alternatively, just short the **RST** pins. The two LEDs should light up and then the red LED will remain ON. The FabPDI-t90usb is ready for use.
+
+Congratulations!
+
+### For Linux
 
 ## Files
 * [Eagle FabPDI-t90usb schematic (v1)](files/fabpdi-t90usb/fabpdi-t90usb_v1.sch)
