@@ -88,11 +88,22 @@ After the software is installed, install the DFU drivers from the \Program Files
 
 To program the board, jumper the **HWB** pins. Short the **RST** pins momentarily. The board will start in bootloader mode. If the AT90usb162 is brand new (empty), it will automatically start in bootloader mode.
 
+![FabPDI-t90usb jumper positions](images/fabpdi-t90usb_06.png)
+
+*Board showing jumper locations*
+
 Download the pre-compiled [firmware](files/fabpdi-t90usb/fabpdi-t90usb_firmware.hex). Click on the **"Open Book"** and load the firmware. In the left column of the FLIP window, check the **"Erase"**, **"Program"** and **"Verify"** checkboxes. Click the **RUN** button. After the firmware has been uploaded to the board, disconnect and reconnect it. Alternatively, just short the **RST** pins. The two LEDs should light up and then the red LED will remain ON. The FabPDI-t90usb is ready for use.
+
+The board should now show up as AVRISP-MkII in Devce Manager.
+
+![FabPDI-t90usb board after programming](images/fabpdi-t90usb_07.png)
+
+*FabPDI-t90usb after uploading firmware*
 
 Congratulations!
 
 ### For Linux
+
 
 ## Files
 * [Eagle FabPDI-t90usb schematic (v1)](files/fabpdi-t90usb/fabpdi-t90usb_v1.sch)
