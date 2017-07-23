@@ -103,13 +103,135 @@ The board should now show up as AVRISP-MkII in Devce Manager.
 Congratulations!
 
 ### For Linux
+I have tried 2 different ways of programming the FabPDI-t90usb board in Linux - using the open-source [dfu-programmer](https://dfu-programmer.github.io/) and Atmel's [FLIP](http://www.atmel.com/tools/flip.aspx) programming software.
 
+**Using DFU-programmer**
+
+To install DFU programmer in Ubuntu, in a terminal window, type:
+
+`sudo apt-get install dfu-programmer`
+
+Connect the FabPDI-t90usb board to a usb port. In terminal, type:
+
+`lsusb`
+
+The AT90usb162 device should show up in the listing:
+`Bus 008 Device 044: ID 03eb:2ffa Atmel Corp. at90usb162 DFU bootloader`
+
+If you cannot find a similar listing, the device may not be connected in DFU mode. Check that the **HWB** jumper is set and short the **RST** pins momentarily.
+
+Download the [firmware](files/fabpdi-t90usb/fabpdi-t90usb_firmware.hex) for FabPDI-t90usb. Open a terminal and change to the directory where the file has been saved.
+
+Ensure that the AT90usb162 has been erased prior to programming:
+
+`dfu-programmer at90usb162 erase`
+
+Upload the FabPDI-t90usb firmware to the onboard flash memory:
+
+`dfu-programmer at90usb162 flash fabpdi-t90usb_firmware.hex`
+
+Disconnect the board, remove the **HWB** jumper and reconnect it to a usb port. The two LEDs should light up, then the red LED will remain ON. The FabPDI-t90usb is ready for use.
+
+In a terminal window, type:
+
+`lsusb`
+
+The FabPDI-t90usb board should appear as an Atmel AVRISP-mkII device.
+
+`Bus 008 Device 045: ID 03eb:2104 Atmel Corp. AVR ISP mkII`
+
+![FabPDI-t90usb in Ubuntu](images/fabpdi-t90usb_08.png)
+
+*FabPDI-t90usb in Ubuntu*
+
+**Using Atmel FLIP**
+
+Using Atmel's FLIP programmer in Ubuntu was a somewhat more complicated affair, as the FLIP is a 32-bit software and requires 32-bit Java Runtime Environment (JRE), whereas my Ubuntu environment is 64-bit.
+
+You first need to download the Atmel [FLIP](http://www.atmel.com/images/flip_linux_3-2-1.tgz) software. You will also need 32-bit [JRE](http://www.java.com/en/download/linux_manual.jsp).
+
+Extract both JRE and FLIP. In my case, I put FLIP in my home directory and JRE in /usr/lib/jvm/jre1.8.0_131. In a terminal:
+
+```
+tar xvzf flip_linux_3-2-1.tgz -C /home/<user>/
+sudo tar xvzf jre-8u131-linux-i586.tar.gz -C /usr/lib/jvm/
+```
+
+I also had a number of missing x32 dependencies for FLIP, which I needed to install:
+
+```
+sudo apt-get install libxrender1:i386
+sudo apt-get install libxtst6:i386
+sudo apt-get install libxi6:i386
+```
+
+To run FLIP in Ubuntu, I also had to set the environment variables:
+
+```
+export JAVA_HOME=/usr/lib/jvm/jre1.8.0_131
+export FLIP_HOME=home/<user>/flip3.2.1/bin
+export USB_DEVFS_PATH=/dev/bus/usb
+```
+
+You also need to enable non-root access to the USB device by adding the user to the dialout group:
+
+`sudo usermod -a -G dialout <user>`
+
+To run FLIP:
+
+```
+cd ~/flip.3.2.1/bin
+./flip.sh
+```
+
+The rest of the steps are the same as using FLIP in Windows, which I have documented above. Make sure that the FabPDI-t90usb board is set to DFU mode (**HWB** jumper, momentarily short **RST** pins):
+
+1. Select target device > at90usb162
+2. Select a communications medium > USB
+3. Load Hex file > [fabpdi-t90usb_firmware.hex](files/fabpdi-t90usb/fabpdi-t90usb_firmware.hex)
+4. Check the **Erase**, **Program** and **Verify** checkboxes
+5. Click the **Run** button and wait for the firmware to be uploaded.
+6. Set the board back to normal mode (disconnect **HWB** jumper, reset the board)
+
+![FabPDI-t90usb FLIP in Ubuntu](images/fabpdi-t90usb_09.png)
+
+*Atmel's FLIP programmer in Ubuntu*
+
+Once the firmware has been successfully uploaded to FabPDI-t90usb, it should appear as an Atmel AVRISP-mkII device:
+
+`Bus 008 Device 045: ID 03eb:2104 Atmel Corp. AVR ISP mkII`
+
+Congratulations! You have made yourself a PDI/ISP programmer.
+
+##Testing the Programmer
+Make sure that FabPDI-t90usb is operating in normal (non-DFU) mode. Open a command prompt window in Windows and a terminal in Linux. Connect your board to FabPDI-t90usb using the PDI header for ATxmega devices and the ISP header for ATtiny and ATmega devices.
+
+![FabPDI-t90usb as PDI programmer](images/fabpdi-t90usb_10.png)
+
+*FabPDI-t90usb as a PDI programmer*
+
+![FabPDI-t90usb as ISP programmer](images/fabpdi-t90usb_11.png)
+
+*FabPDI-t90usb as an ISP programmer*
+
+ Using avrdude to detect my ATxmega16E5 Hello Board with FabPDI-t90usb:
+
+ `avrdude -c avrispmkii -p x16e5`
+
+Using avrdude to detect my ATmega328p arduino compatible board:
+
+ `avrdude -c avrispmkii -p m328p`
+
+ ![FabPDI-t90usb with avrdude](images/fabpdi-t90usb_12.png)
+
+*FabPDI-t90usb with avrdude*
 
 ## Files
 * [Eagle FabPDI-t90usb schematic (v1)](files/fabpdi-t90usb/fabpdi-t90usb_v1.sch)
 * [Eagle FabPDI-t90usb pcb layout (v1)](files/fabpdi-t90usb_v1.brd)
 * [Eagle FabPDI-t90usb schematic (v1.1)](files/fabpdi-t90usb/fabpdi-t90usb_v1.1.sch)
 * [Eagle FabPDI-t90usb pcb layout (v1.1)](files/fabpdi-t90usb/fabpdi-t90usb_v1.1.brd)
+* [Firmware (for 16MHz crystal/resonator)](files/fabpdi-t90usb/fabpdi-t90usb_firmware.hex)
 
 *Copyright (c) 2017 Steven Chew*
 
