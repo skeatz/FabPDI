@@ -28,7 +28,7 @@ The AVRISP-MkII clone project at [fourwalledcubicle](http://www.fourwalledcubicl
 
 *FabPDI-t90usb pcb layout*
 
-**Note** the use of a jumper wire at the top left of the pcb layout diagram. There are 2 other 0 ohm resistors in my design. I opted to use a jumper wire to save time, instead of trying to changing the component placement and re-route the entire board.
+**Note** the use of a jumper wire at the top left of the pcb layout diagram. There are 2 other 0 ohm resistors in my design. I opted to use a jumper wire to save time, instead of trying to change the component placement and re-route the entire board.
 
 **Tip**: when I started laying out the PCB, I did not know if I needed any 0 ohm resistors or where they should be located. To add a 0 ohm resistor in Eagle board layout, you need to de-link the PCB editor from the Schematic editor. You can do this by closing the Schematic editor. This allows you to add components in the PCB editor, but you lose the ability to do forward or backward annotation.
 
@@ -46,7 +46,7 @@ Most of the traces are 15 mil wide, except for the traces connected to the [GTL2
 *Completed FabPDI-t90usb board*
 
 ### Testing the board
-After milling & stuffing the FabPDI-t90usb, connect it to a USB port. In Windows, check *Device Manager* to verify that the board is correctly detected by the system. In Windows, the FabPDI-t90usb identifies itself as an AVRISP mkII. In Linux, enter the command ***lsusb*** in a terminal screen. You should see a new device called ***at90usb162 DFU***.
+After milling & stuffing the FabPDI-t90usb, connect it to a USB port. In Windows, check *Device Manager* to verify that the board is correctly detected by the system. In Windows, the FabPDI-t90usb identifies itself as an AT90USB162 device. In Linux, enter the command ***lsusb*** in a terminal screen. You should see a new device called ***at90usb162 DFU***.
 
 ![FabPDI-t90usb in Windows Device Manager](images/fabpdi-t90usb_04.png)
 
@@ -150,7 +150,7 @@ Using Atmel's FLIP programmer in Ubuntu was a somewhat more complicated affair, 
 
 You first need to download the Atmel [FLIP](http://www.atmel.com/images/flip_linux_3-2-1.tgz) software. You will also need 32-bit [JRE](http://www.java.com/en/download/linux_manual.jsp).
 
-Extract both JRE and FLIP. In my case, I put FLIP in my home directory and JRE in /usr/lib/jvm/jre1.8.0_131. In a terminal:
+Extract both JRE and FLIP. In my case, I put FLIP in my home directory and JRE in /usr/lib/jvm/jre1.8.0_131. In terminal, type:
 
 ```
 tar xvzf flip_linux_3-2-1.tgz -C /home/<user>/
@@ -203,8 +203,8 @@ Once the firmware has been successfully uploaded to FabPDI-t90usb, it should app
 
 Congratulations! You have made yourself a PDI/ISP programmer.
 
-##Testing the Programmer
-Make sure that FabPDI-t90usb is operating in normal (non-DFU) mode. Open a command prompt window in Windows and a terminal in Linux. Connect your board to FabPDI-t90usb using the PDI header for ATxmega devices and the ISP header for ATtiny and ATmega devices.
+## Testing the Programmer
+Make sure that FabPDI-t90usb is operating in normal (non-DFU) mode. Open a command prompt window in Windows or terminal if using Linux. Connect your board to FabPDI-t90usb using the PDI header for ATxmega devices and the ISP header for ATtiny and ATmega devices.
 
 ![FabPDI-t90usb as PDI programmer](images/fabpdi-t90usb_10.png)
 
@@ -225,6 +225,8 @@ Using avrdude to detect my ATmega328p arduino compatible board:
  ![FabPDI-t90usb with avrdude](images/fabpdi-t90usb_12.png)
 
 *FabPDI-t90usb with avrdude*
+
+Have fun with your new PDI/ISP programmer!
 
 ## Files
 * [Eagle FabPDI-t90usb schematic (v1)](files/fabpdi-t90usb/fabpdi-t90usb_v1.sch)
