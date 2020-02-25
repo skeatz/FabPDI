@@ -46,7 +46,7 @@ The schematic diagram, component layout, fab modules compatible board outline an
 
 The schematic is a modified version of Thomas Fischl's [original USBasp](http://www.fischl.de/usbasp/) circuit. Component values have been modified for Fablab inventory as far as possible and the ATmega8 microcontroller switches completely between 5V and 3.3V. I opted to use a 12 MHz crystal as per Thomas's original design as I had some available. If you use a different crystal frequency, you will to change the fuse bits and clock value in the source code as well.
 
-![FabPDI-mega8 schematic](images/fabpdi-mega8_04.png)
+![FabPDI-mega8 schematic](images/fabpdi-mega8_04.png){: width="600"}
 
 *FabPDI-mega8 schematic*
 
